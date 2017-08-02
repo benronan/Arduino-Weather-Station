@@ -58,6 +58,7 @@ public:
 	double Temperature();
 	double Pressure();
 	double Humidity();
+	double Altitude(float seaLevelPressure);
 	
 };
 
