@@ -22,6 +22,11 @@ double TBME280::Humidity() {
 	return this->_humidity;
 }
 
+int TBME280::Altitude(float seaLevelPressure) {
+    float atmospheric = this->_pressure / 100.0F;
+    return 44330.0 * (1.0 - pow(atmospheric / seaLevel, 0.1903));
+}
+
 void TBME280::Initialize() {
 	uint8_t osrs_t = 1;             //Temperature oversampling x 1
 	uint8_t osrs_p = 1;             //Pressure oversampling x 1
